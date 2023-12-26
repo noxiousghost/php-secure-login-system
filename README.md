@@ -36,18 +36,20 @@ Narayan_login/
 
 Follow these steps to run the project successfully on your system:
 
-1. Clone or download the repository.
-2. If using XAMPP, copy the entire `Narayan_login` folder to `xampp/htdocs/`.
-3. Import the database:
-   - Open phpMyAdmin in your web browser.
-   - Import the SQL file located in the `DB` directory (`Narayan_login/DB/db.sql`) into the newly created database.
-4. Start your local server (XAMPP, MAMP, or any other PHP server).
-5. Open your web browser and navigate to `http://localhost/Narayan_login/` to access the application.
+1. If using XAMPP, copy the entire `Narayan_login` folder to `xampp/htdocs/`.
+
+2. Import the database:
+
+- Open phpMyAdmin in your web browser.
+- Import the SQL file located in the `DB` directory (`Narayan_login/DB/narayan_user.sql`) into the newly created database.
+
+3. Start your local server (XAMPP, MAMP, or any other PHP server).
+4. Open your web browser and navigate to `http://localhost/Narayan_login/` to access the application.
 
 ## Important Notice
 
 **Disclaimer:**
 
-- Storing sensitive information in the source code is a major security vulnerability. For the simplicity of the grader while grading this assignment, I have let that be.
+- Storing sensitive information in the source code is a major security vulnerability. For the simplicity of the grader while grading this assignment, I have included my mail and app password (NOT REAL) for this project.
 - You are expetected to receive email from sapkota.king@gmail.com for receiving OTP.
 - If you wish, in send_email.php file, replace username and passwrod with your own.
