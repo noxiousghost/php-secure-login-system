@@ -219,63 +219,6 @@ if(isset($_POST['signup'])){
     }
 
 
-    
-    // // change password
-    // if (isset($_POST['change-password'])) {
-    //     $_SESSION['info'] = "";
-    //     $crpasswrod = mysqli_real_escape_string($con, $_POST['crpassword']);
-    //     $password = mysqli_real_escape_string($con, $_POST['password']);
-    //     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-    
-    //     // Check if passwords match
-    //     if ($password !== $cpassword) {
-    //         $errors['password'] = "Passwords do not match";
-    //     } elseif (!isValidPassword($password)) {
-    //         $errors['password'] = "Password does not meet the required strength criteria.";
-    //     } else {
-    //         $email = $_SESSION['email'];
-    //         // Get the current hashed password from the database
-    //         $get_current_pass = "SELECT password FROM users WHERE email = '$email'";
-    //         $result = mysqli_query($con, $get_current_pass);
-    
-    //         if ($result) {
-    //             $row = mysqli_fetch_assoc($result);
-    //             $current_password_hash = $row['password'];
-    
-    //             // Verify if the entered password is different from the current one
-    //             if (password_verify($password, $current_password_hash)) {
-    //                 $errors['password'] = "New password cannot be the same as the previous one.";
-    //             } else {
-    //                 $code = 0;
-    //                 $encpass = password_hash($password, PASSWORD_BCRYPT);
-    //                 $update_pass = "UPDATE users SET code = $code, password = '$encpass' WHERE email = '$email'";
-    //                 $run_query = mysqli_query($con, $update_pass);
-    
-    //                 if ($run_query) {
-    //                     $info = "Your password has been changed successfully!";
-    //                     $_SESSION['info'] = $info;
-    //                     header('Location: pw_changed.php');
-    //                 } else {
-    //                     $errors['db-error'] = "Failed to change your password!";
-    //                 }
-    //             }
-    //         } else {
-    //             $errors['db-error'] = "Error fetching current password.";
-    //         }
-    //     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
 // change password
 if (isset($_POST['change-password'])) {
     $_SESSION['info'] = "";
@@ -330,11 +273,6 @@ if (isset($_POST['change-password'])) {
         $errors['db-error'] = "Error fetching current password: " . mysqli_error($con);
     }
 }
-
-
-
-
-
 
    //if login now button click
     if(isset($_POST['login-now'])){
