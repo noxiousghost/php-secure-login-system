@@ -14,7 +14,7 @@ if($email != false && $password != false){
                 header('Location: otp_verification.php');
             }
         }else{
-            header('Location: user-otp.php');
+            header('Location: signup_otp.php');
         }
     }
 }else{
