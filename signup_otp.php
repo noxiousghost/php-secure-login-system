@@ -24,9 +24,9 @@ if($email == false){
                     <?php 
                     if(isset($_SESSION['info'])){
                         ?>
-                    <div class="alert alert-dark text-success text-center">
-                        <?php echo $_SESSION['info']; ?>
-                    </div>
+                    <!-- <div class="alert alert-dark text-success text-center"> -->
+                    <?php echo $_SESSION['info']; ?>
+                    <!-- </div> -->
                     <?php
                     }
                     ?>
