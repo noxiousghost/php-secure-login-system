@@ -11,9 +11,9 @@ password.addEventListener("keyup", function () {
 });
 
 function toggleCriteria() {
-  var criteriaList = document.getElementById("password-criteria-list");
-  criteriaList.style.display =
-    criteriaList.style.display === "none" ? "block" : "none";
+  let criteriaList = document.getElementById("password-criteria-list");
+  criteriaList.style.display === "none" ? "block" : "none";
+  return false;
 }
 
 function checkStrength(password) {

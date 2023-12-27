@@ -22,10 +22,13 @@ $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
 if($password !== $cpassword){
 $errors['password'] = "Passwords do not match";
 }
+
+
 // Server-side password strength check
 if (!isValidPassword($password)) {
 $errors['password'] = "Password does not meet the required strength criteria.";
 }
+//check for exiting email
 $email_check = "SELECT * FROM users WHERE email = '$email'";
 $res = mysqli_query($con, $email_check);
 if(mysqli_num_rows($res) > 0){

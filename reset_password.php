@@ -23,7 +23,7 @@ if($email == false){
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
-                <form action="reset_password.php" method="POST" autocomplete="off">
+                <form action="reset_password.php" method="POST" autocomplete="off" onsubmit="return toggleCriteria();">
                     <h2 class="text-center">Reset Password</h2>
                     <p class="text-center">Create a new password</p>
                     <?php 
