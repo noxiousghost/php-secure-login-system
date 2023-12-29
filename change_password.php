@@ -17,7 +17,8 @@ $password = $_SESSION['password'];
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
     <script src="./js/pw.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
@@ -116,8 +117,9 @@ $password = $_SESSION['password'];
                     </div>
 
                     <div class="form-group">
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAPG9xJRMG6PCVZ6"
-                            data-callback="javascriptCallback"></div>
+                        <div class="g-recaptcha" data-sitekey="6LeVSTspAAAAACHHlMZeG7I9JShssycb667D9qaC"
+                            data-callback="verifyCaptcha" data-theme="dark"></div>
+                        <div id="g-recaptcha-error"></div>
                     </div>
 
                     <div class="form-group">

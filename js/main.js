@@ -11,9 +11,9 @@ password.addEventListener("keyup", function () {
 });
 
 function toggleCriteria() {
-  let criteriaList = document.getElementById("password-criteria-list");
-  criteriaList.style.display === "none" ? "block" : "none";
-  return false;
+  var criteriaList = document.getElementById("password-criteria-list");
+  criteriaList.style.display =
+    criteriaList.style.display === "none" ? "block" : "none";
 }
 
 function checkStrength(password) {
@@ -46,8 +46,8 @@ function checkStrength(password) {
     specialChar.classList.add("fa-circle");
     specialChar.classList.remove("fa-check");
   }
-  //If password is greater than 7
-  if (password.length > 7) {
+  //If password is greater than 10
+  if (password.length > 10) {
     strength += 1;
     eightChar.classList.remove("fa-circle");
     eightChar.classList.add("fa-check");
