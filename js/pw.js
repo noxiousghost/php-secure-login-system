@@ -1,7 +1,7 @@
 let recaptcha_response = "";
 function submitUserForm() {
   if (recaptcha_response.length == 0) {
-    document.getElementById("h-captcha-error").innerHTML =
+    document.getElementById("captcha-error").innerHTML =
       '<span style="color:red;">This field is required.</span>';
     return false;
   }
@@ -10,7 +10,7 @@ function submitUserForm() {
 
 function verifyCaptcha(token) {
   recaptcha_response = token;
-  document.getElementById("h-captcha-error").innerHTML = "";
+  document.getElementById("captcha-error").innerHTML = "";
 }
 
 function togglePasswordVisibility(fieldId) {

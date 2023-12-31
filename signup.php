@@ -119,7 +119,7 @@
                         <div class="h-captcha" data-sitekey="57487d02-b4b4-4736-a154-810cd3700def" data-theme="dark"
                             data-callback="verifyCaptcha">
                         </div>
-                        <div id="h-captcha-error"></div>
+                        <div id="captcha-error"></div>
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="signup" value="Signup">
