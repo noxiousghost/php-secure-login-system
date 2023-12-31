@@ -47,7 +47,7 @@ function checkStrength(password) {
     specialChar.classList.remove("fa-check");
   }
   //If password is greater than 10
-  if (password.length > 10) {
+  if (password.length >= 10) {
     strength += 1;
     eightChar.classList.remove("fa-circle");
     eightChar.classList.add("fa-check");

@@ -9,7 +9,7 @@ $errors = array();
 
 // Function to check password strength on the server side
 function isValidPassword($password) {
-return (strlen($password) >= 8 && preg_match("/[a-z]/", $password) && preg_match("/[A-Z]/",
+return (strlen($password) >= 10 && preg_match("/[a-z]/", $password) && preg_match("/[A-Z]/",
 $password) && preg_match("/[0-9]/", $password) && preg_match("/[!@#$%^&*(),.?_~]/", $password));
 }
 

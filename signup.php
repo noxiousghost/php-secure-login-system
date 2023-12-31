@@ -91,13 +91,13 @@
                                 <li class="">
                                     <span class="one-special-char">
                                         <i class="fas fa-circle" aria-hidden="true"></i>
-                                        &nbsp;Special Character
+                                        &nbsp;Special Characters
                                     </span>
                                 </li>
                                 <li class="">
                                     <span class="eight-character">
                                         <i class="fas fa-circle" aria-hidden="true"></i>
-                                        &nbsp;Atleast 8 Character
+                                        &nbsp;Atleast 10 Characters
                                     </span>
                                 </li>
                             </ul>
