@@ -110,10 +110,10 @@
                             <i id="cpassword-eye" class="far fa-eye"></i>
                         </span>
                     </div>
-                    <div class="form-group terms-check">
+                    <div class="form-group terms-check link">
                         <input type="checkbox" name="accept_terms" id="accept_terms" required>
-                        <label for="accept_terms">I accept the&nbsp;<a class="terms-link" href="terms.html"
-                                target="_blank"> Terms and Conditions</a></label>
+                        <label for="accept_terms">I accept the&nbsp;<a href="terms.html" target="_blank">
+                                Terms and Conditions</a></label>
                     </div>
                     <div class="form-group">
                         <div class="h-captcha" data-sitekey="57487d02-b4b4-4736-a154-810cd3700def" data-theme="dark"
