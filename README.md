@@ -50,6 +50,7 @@ Follow these steps to run the project successfully on your system:
 
 **Disclaimer:**
 
-- Storing sensitive information in the source code is a major security vulnerability. For the simplicity of the grader while grading this assignment, I have included my mail and app password (NOT REAL) for this project.
-- You are expetected to receive email from sapkota.king@gmail.com for receiving OTP.
-- If you wish, in send_email.php file, replace username and passwrod with your own.
+- I understand that storing sensitive information in the source code is a major security vulnerability.
+- For the simplicity of the grader while grading this assignment, I have included my mail and app password as well as the google recaptcha site key in the source.
+- You are expetected to receive email from sapkota.king@gmail.com for getting OTP code while signing up and changing passwords.
+- If you wish, in send_email.php file, replace username and password with your own.
