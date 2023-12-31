@@ -44,7 +44,9 @@ Follow these steps to run the project successfully on your system:
 - Import the SQL file located in the `DB` directory (`Narayan_login/DB/narayan_user.sql`). No need to create database first
 
 3. Start your local server (XAMPP, MAMP, or any other PHP server).
-4. Open your web browser and navigate to `http://localhost/Narayan_login/` to access the application.
+4. Open your web browser and navigate to `http://127.0.0.1/Narayan_login/` to access the application.
+
+- Note: If localhost/ is used instead of 127.0.0.1/ then h-captcha might not work
 
 ## Important Notice
 
