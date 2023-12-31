@@ -13,17 +13,43 @@ return (strlen($password) >= 10 && preg_match("/[a-z]/", $password) && preg_matc
 $password) && preg_match("/[0-9]/", $password) && preg_match("/[!@#$%^&*(),.?_~]/", $password));
 }
 
+//Function for hcaptcha server side verification
+// if you wish you can get your own h-captcha secret key and use
+define('HCAPTCHA_SECRET_KEY', 'ES_25eb6b5bcf6b490aaa760bc8aa04a431');
+function validateHcaptcha($hcaptchaResponse) {
+    $hcaptchaUrl = "https://hcaptcha.com/siteverify";
+    $hcaptchaData = array(
+        'secret' => HCAPTCHA_SECRET_KEY,
+        'response' => $hcaptchaResponse,
+    );
+    $hcaptchaOptions = array(
+        'http' => array(
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($hcaptchaData),
+        ),
+    );
+    $hcaptchaContext = stream_context_create($hcaptchaOptions);
+    $hcaptchaResult = file_get_contents($hcaptchaUrl, false, $hcaptchaContext);
+    $hcaptchaData = json_decode($hcaptchaResult, true);
+    return $hcaptchaData['success'];
+}
+
 // signup
 if(isset($_POST['signup'])){
 $name = mysqli_real_escape_string($con, $_POST['name']);
 $email = mysqli_real_escape_string($con, $_POST['email']);
 $password = mysqli_real_escape_string($con, $_POST['password']);
 $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+// Validate hCaptcha response
+$hcaptchaResponse = $_POST['h-captcha-response'];
+if (!validateHcaptcha($hcaptchaResponse)) {
+    $errors['hcaptcha'] = "hCaptcha verification failed.";
+}
+// checks for password and confirm password
 if($password !== $cpassword){
 $errors['password'] = "Passwords do not match";
 }
-
-
 // Server-side password strength check
 if (!isValidPassword($password)) {
 $errors['password'] = "Password does not meet the required strength criteria.";
@@ -34,7 +60,6 @@ $res = mysqli_query($con, $email_check);
 if(mysqli_num_rows($res) > 0){
 $errors['email'] = "Email is already used";
 }
-
 if(count($errors) === 0){
 $encpass = password_hash($password, PASSWORD_BCRYPT);
 $code = rand(999999, 111111);
@@ -66,6 +91,7 @@ $errors['db-error'] = "Database Error";
 
 }
 }
+
 // verification code submit
 if(isset($_POST['check'])){
 $_SESSION['info'] = "";
@@ -182,7 +208,11 @@ if (isset($_POST['reset-password'])) {
 $_SESSION['info'] = "";
 $password = mysqli_real_escape_string($con, $_POST['password']);
 $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-
+// Validate hCaptcha response
+$hcaptchaResponse = $_POST['h-captcha-response'];
+if (!validateHcaptcha($hcaptchaResponse)) {
+    $errors['hcaptcha'] = "hCaptcha verification failed.";
+}
 // Check if passwords match
 if ($password !== $cpassword) {
 $errors['password'] = "Passwords do not match";
@@ -241,7 +271,11 @@ if (!$row) {
 $errors['db-error'] = "No matching user found for the provided email.";
 } else {
 $current_password_hash = $row['password'];
-
+// Validate hCaptcha response
+$hcaptchaResponse = $_POST['h-captcha-response'];
+if (!validateHcaptcha($hcaptchaResponse)) {
+    $errors['hcaptcha'] = "hCaptcha verification failed.";
+}
 // Verify if the entered current password is correct
 if (!password_verify($crpassword, $current_password_hash)) {
 $errors['crpassword'] = "Incorrect current password.";
