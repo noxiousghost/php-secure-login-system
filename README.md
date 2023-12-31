@@ -41,7 +41,7 @@ Follow these steps to run the project successfully on your system:
 2. Import the database:
 
 - Open phpMyAdmin in your web browser.
-- Import the SQL file located in the `DB` directory (`Narayan_login/DB/narayan_user.sql`) into the newly created database.
+- Import the SQL file located in the `DB` directory (`Narayan_login/DB/narayan_user.sql`). No need to create database first
 
 3. Start your local server (XAMPP, MAMP, or any other PHP server).
 4. Open your web browser and navigate to `http://localhost/Narayan_login/` to access the application.
