@@ -1,4 +1,3 @@
-<?php require_once "cloudflare-turnstile.php"; ?>
 <?php require_once "controller.php"; ?>
 <?php 
 $email = $_SESSION['email'];
@@ -14,8 +13,8 @@ if($email == false){
     <title>Password Reset</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
     <script src="./js/pw.js"></script>
+    <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
@@ -24,7 +23,7 @@ if($email == false){
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
-                <form action="reset_password.php" method="POST" autocomplete="off" onsubmit="return toggleCriteria();">
+                <form action="reset_password.php" method="POST" autocomplete="off" onsubmit="return submitUserForm();">
                     <h2 class="text-center">Reset Password</h2>
                     <p class="text-center">Create a new password</p>
                     <?php 
