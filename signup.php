@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/pw.js"></script>
     <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
 </head>
 
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
                 <form action="signup.php" method="POST" autocomplete="" onsubmit="return submitUserForm();">
-                    <h2 class="text-center">Signup</h2>
+                    <h2 class=" text-center">Signup</h2>
                     <p class="text-center">Create a new account.</p>
                     <?php
                     if(count($errors) == 1){
@@ -116,9 +116,10 @@
                                 target="_blank"> Terms and Conditions</a></label>
                     </div>
                     <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="6LeVSTspAAAAACHHlMZeG7I9JShssycb667D9qaC"
-                            data-callback="verifyCaptcha" data-theme="dark"></div>
-                        <div id="g-recaptcha-error"></div>
+                        <div class="h-captcha" data-sitekey="57487d02-b4b4-4736-a154-810cd3700def" data-theme="dark"
+                            data-callback="verifyCaptcha">
+                        </div>
+                        <div id="h-captcha-error"></div>
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="signup" value="Signup">

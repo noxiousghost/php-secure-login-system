@@ -15,7 +15,7 @@ if($email == false){
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/pw.js"></script>
     <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
 </head>
 
@@ -108,9 +108,10 @@ if($email == false){
                     </div>
 
                     <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="6LeVSTspAAAAACHHlMZeG7I9JShssycb667D9qaC"
-                            data-callback="verifyCaptcha" data-theme="dark"></div>
-                        <div id="g-recaptcha-error"></div>
+                        <div class="h-captcha" data-sitekey="57487d02-b4b4-4736-a154-810cd3700def" data-theme="dark"
+                            data-callback="verifyCaptcha">
+                        </div>
+                        <div id="h-captcha-error"></div>
                     </div>
 
 
