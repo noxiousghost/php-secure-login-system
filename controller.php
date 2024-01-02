@@ -131,6 +131,35 @@ if (isset($_POST['check'])) {
     }
 }
 
+//resend OTP
+if (isset($_GET['resend_otp']) && $_GET['resend_otp'] == 'true') {
+    if (isset($_SESSION['email'])) {
+        $email = $_SESSION['email'];
+        $new_code = rand(999999, 111111);
+        $otp_time = time();
+        $update_code = "UPDATE users SET code = $new_code, otp_time = $otp_time WHERE email = '$email'";
+        $run_query = mysqli_query($con, $update_code);
+        if ($run_query) {
+            $subject = "New OTP verification";
+            $message = "Please use this new code to verify: $new_code";
+            $result = sendMail($email, $subject, $message);
+            if ($result === true) {
+                $info = "A new OTP has been sent to your email - $email";
+                $_SESSION['info'] = $info;
+                header('location: signup_otp.php');
+                exit();
+            } else {
+                $errors['otp-error'] = $result;
+            }
+        } else {
+            $errors['db-error'] = "Database Error";
+        }
+    } else {
+        $errors['session-error'] = "Session not found.";
+    }
+}
+
+
 // login
 if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -156,7 +185,7 @@ if (isset($_POST['login'])) {
             $errors['email'] = "Incorrect email or password!";
         }
     } else {
-        $errors['email'] = "Account not found! Please signup first.";
+        $errors['email'] = "Account not found! Please register first.";
     }
 }
 
@@ -219,6 +248,34 @@ if (isset($_POST['check-reset-otp'])) {
     }
 }
 
+//resend OTP
+if (isset($_GET['resend_otp2']) && $_GET['resend_otp2'] == 'true') {
+    if (isset($_SESSION['email'])) {
+        $email = $_SESSION['email'];
+        $new_code = rand(999999, 111111);
+        $otp_time = time();
+        $update_code = "UPDATE users SET code = $new_code, otp_time = $otp_time WHERE email = '$email'";
+        $run_query = mysqli_query($con, $update_code);
+        if ($run_query) {
+            $subject = "New OTP verification";
+            $message = "Please use this new code to verify: $new_code";
+            $result = sendMail($email, $subject, $message);
+            if ($result === true) {
+                $info = "A new OTP has been sent to your email - $email";
+                $_SESSION['info'] = $info;
+                header('location: otp_verification.php');
+                exit();
+            } else {
+                $errors['otp-error'] = $result;
+            }
+        } else {
+            $errors['db-error'] = "Database Error";
+        }
+    } else {
+        $errors['session-error'] = "Session not found.";
+    }
+}
+
 
 // reset password
 if (isset($_POST['reset-password'])) {
@@ -269,33 +326,6 @@ if (isset($_POST['reset-password'])) {
 }
 
 
-//resend OTP
-if (isset($_GET['resend_otp']) && $_GET['resend_otp'] == 'true') {
-    if (isset($_SESSION['email'])) {
-        $email = $_SESSION['email'];
-        $new_code = rand(999999, 111111);
-        $otp_time = time();
-        $update_code = "UPDATE users SET code = $new_code, otp_time = $otp_time WHERE email = '$email'";
-        $run_query = mysqli_query($con, $update_code);
-        if ($run_query) {
-            $subject = "New OTP verification";
-            $message = "Please use this new code to verify: $new_code";
-            $result = sendMail($email, $subject, $message);
-            if ($result === true) {
-                $info = "A new OTP has been sent to your email - $email";
-                $_SESSION['info'] = $info;
-                header('location: otp_verification.php');
-                exit();
-            } else {
-                $errors['otp-error'] = $result;
-            }
-        } else {
-            $errors['db-error'] = "Database Error";
-        }
-    } else {
-        $errors['session-error'] = "Session not found.";
-    }
-}
 
 
 

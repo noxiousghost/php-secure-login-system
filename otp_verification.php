@@ -24,22 +24,22 @@ if ($email == false) {
                     <?php
                     if (isset($_SESSION['info'])) {
                     ?>
-                        <div style="padding: 0.4rem 0.4rem">
-                            <?php echo $_SESSION['info']; ?>
-                        </div>
+                    <div style="padding: 0.4rem 0.4rem">
+                        <?php echo $_SESSION['info']; ?>
+                    </div>
                     <?php
                     }
                     ?>
                     <?php
                     if (count($errors) > 0) {
                     ?>
-                        <div class="alert alert-dark text-danger text-center">
-                            <?php
+                    <div class="alert alert-dark text-danger text-center">
+                        <?php
                             foreach ($errors as $showerror) {
                                 echo $showerror;
                             }
                             ?>
-                        </div>
+                    </div>
                     <?php
                     }
                     ?>
@@ -48,7 +48,8 @@ if ($email == false) {
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="check-reset-otp" value="Submit">
-                        <div class="link login-link text-center"><a href="signup_otp.php?resend_otp=true">Resend OTP</a>
+                        <div class="link login-link text-center"><a href="otp_verification.php?resend_otp2=true">Resend
+                                OTP</a>
                         </div>
                 </form>
             </div>
