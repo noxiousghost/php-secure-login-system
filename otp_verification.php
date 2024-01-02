@@ -48,7 +48,8 @@ if($email == false){
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="check-reset-otp" value="Submit">
-                    </div>
+                        <div class="link login-link text-center"><a href="signup_otp.php?resend_otp=true">Resend OTP</a>
+                        </div>
                 </form>
             </div>
         </div>
