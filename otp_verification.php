@@ -1,8 +1,8 @@
 <?php require_once "controller.php"; ?>
-<?php 
+<?php
 $email = $_SESSION['email'];
-if($email == false){
-  header('Location: login.php');
+if ($email == false) {
+    header('Location: login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -21,25 +21,25 @@ if($email == false){
             <div class="col-md-4 offset-md-4 form">
                 <form action="otp_verification.php" method="POST" autocomplete="off">
                     <h2 class="text-center">OTP Verification</h2>
-                    <?php 
-                    if(isset($_SESSION['info'])){
-                        ?>
-                    <!-- <div class="alert alert-dark text-success text-center" style="padding: 0.4rem 0.4rem"> -->
-                    <?php echo $_SESSION['info']; ?>
-                    <!-- </div> -->
+                    <?php
+                    if (isset($_SESSION['info'])) {
+                    ?>
+                        <div style="padding: 0.4rem 0.4rem">
+                            <?php echo $_SESSION['info']; ?>
+                        </div>
                     <?php
                     }
                     ?>
                     <?php
-                    if(count($errors) > 0){
-                        ?>
-                    <div class="alert alert-dark text-danger text-center">
-                        <?php
-                            foreach($errors as $showerror){
+                    if (count($errors) > 0) {
+                    ?>
+                        <div class="alert alert-dark text-danger text-center">
+                            <?php
+                            foreach ($errors as $showerror) {
                                 echo $showerror;
                             }
                             ?>
-                    </div>
+                        </div>
                     <?php
                     }
                     ?>

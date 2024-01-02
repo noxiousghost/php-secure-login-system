@@ -1,8 +1,8 @@
 <?php require_once "controller.php"; ?>
-<?php 
+<?php
 $email = $_SESSION['email'];
-if($email == false){
-  header('Location: login.php');
+if ($email == false) {
+    header('Location: login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -21,31 +21,30 @@ if($email == false){
             <div class="col-md-4 offset-md-4 form">
                 <form action="signup_otp.php" method="POST" autocomplete="off">
                     <h2 class="text-center">Code Verification</h2>
-                    <?php 
-                    if(isset($_SESSION['info'])){
-                        ?>
-                    <!-- <div class="alert alert-dark text-success text-center"> -->
-                    <?php echo $_SESSION['info']; ?>
-                    <!-- </div> -->
+                    <?php
+                    if (isset($_SESSION['info'])) {
+                    ?>
+                        <div style="padding: 0.4rem 0.4rem">
+                            <?php echo $_SESSION['info']; ?>
+                        </div>
                     <?php
                     }
                     ?>
                     <?php
-                    if(count($errors) > 0){
-                        ?>
-                    <div class="alert alert-dark text-danger text-center">
-                        <?php
-                            foreach($errors as $showerror){
+                    if (count($errors) > 0) {
+                    ?>
+                        <div class="alert alert-dark text-danger text-center">
+                            <?php
+                            foreach ($errors as $showerror) {
                                 echo $showerror;
                             }
                             ?>
-                    </div>
+                        </div>
                     <?php
                     }
                     ?>
                     <div class="form-group">
-                        <input class="form-control" type="number" name="otp" placeholder="Enter verification code"
-                            required>
+                        <input class="form-control" type="number" name="otp" placeholder="Enter verification code" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="check" value="Submit">
