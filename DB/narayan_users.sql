@@ -35,7 +35,8 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `code` mediumint(50) NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `otp_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
