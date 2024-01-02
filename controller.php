@@ -67,25 +67,20 @@ if (isset($_POST['signup'])) {
     if (mysqli_num_rows($res) > 0) {
         $errors['email'] = "Email is already used";
     }
-
     if (count($errors) === 0) {
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $otp_time = time(); // Current timestamp
         $status = "notverified";
         $insert_data = "INSERT INTO users (name, email, password, code, otp_time, status)
-values('$name', '$email', '$encpass', '$code', '$otp_time', '$status')";
-        // $insert_data = "INSERT INTO users (name, email, password, code, status)
-        // values('$name', '$email', '$encpass', '$code', '$status')";
+        values('$name', '$email', '$encpass', '$code', '$otp_time', '$status')";
         $data_check = mysqli_query($con, $insert_data);
 
         if ($data_check) {
             $subject = "OTP verification";
             $message = "Please use this code to verify: $code";
-
             // Call the sendMail function from mailer.php
             $result = sendMail($email, $subject, $message);
-
             if ($result === true) {
                 $info = "Verification code is sent to your email - $email";
                 $_SESSION['info'] = $info;
@@ -103,34 +98,6 @@ values('$name', '$email', '$encpass', '$code', '$otp_time', '$status')";
 }
 
 // verification code submit
-// if(isset($_POST['check'])){
-// $_SESSION['info'] = "";
-// $otp_code = mysqli_real_escape_string($con, $_POST['otp']);
-// $check_code = "SELECT * FROM users WHERE code = $otp_code";
-// $code_res = mysqli_query($con, $check_code);
-// if(mysqli_num_rows($code_res) > 0){
-// $fetch_data = mysqli_fetch_assoc($code_res);
-// $fetch_code = $fetch_data['code'];
-// $email = $fetch_data['email'];
-// $code = 0;
-// $status = 'verified';
-// $update_otp = "UPDATE users SET code = $code, status = '$status' WHERE code = $fetch_code";
-// $update_res = mysqli_query($con, $update_otp);
-// if($update_res){
-// $_SESSION['name'] = $name;
-// $_SESSION['email'] = $email;
-// header('location: home.php');
-// exit();
-// }else{
-// $errors['otp-error'] = "OTP update failed";
-// }
-// }else{
-// $errors['otp-error'] = "Invalid OTP!";
-// }
-// }
-
-
-
 if (isset($_POST['check'])) {
     $_SESSION['info'] = "";
     $otp_code = mysqli_real_escape_string($con, $_POST['otp']);
@@ -143,9 +110,7 @@ if (isset($_POST['check'])) {
         $otp_time = $fetch_data['otp_time']; // Fetch the otp_time
         $otp_valid_duration = 120; //otp exipires after 2 minutes
         $current_time = time();
-        // Check if the current time is within the allowed time frame from otp_time
         if ($current_time - $otp_time <= $otp_valid_duration) {
-            // Proceed with OTP verification
             $code = 0;
             $status = 'verified';
             $update_otp = "UPDATE users SET code = $code, status = '$status' WHERE code = '$fetch_code'";
@@ -229,18 +194,17 @@ if (isset($_POST['check-email'])) {
 }
 
 // reset password otp validation
-if(isset($_POST['check-reset-otp'])){
+if (isset($_POST['check-reset-otp'])) {
     $_SESSION['info'] = "";
     $otp_code = mysqli_real_escape_string($con, $_POST['otp']);
     $check_code = "SELECT * FROM users WHERE code = '$otp_code'";
     $code_res = mysqli_query($con, $check_code);
-    if(mysqli_num_rows($code_res) > 0){
+    if (mysqli_num_rows($code_res) > 0) {
         $fetch_data = mysqli_fetch_assoc($code_res);
         $email = $fetch_data['email'];
         $otp_time = $fetch_data['otp_time']; // Fetch the otp_time
         $otp_valid_duration = 120; //2 minutes exipary time
         $current_time = time();
-        // Check if the current time is within the allowed time frame from otp_time
         if ($current_time - $otp_time <= $otp_valid_duration) {
             $_SESSION['email'] = $email;
             $info = "Enter a new Password";
@@ -306,14 +270,14 @@ if (isset($_POST['reset-password'])) {
 
 
 //resend OTP
-if(isset($_GET['resend_otp']) && $_GET['resend_otp'] == 'true'){
-    if(isset($_SESSION['email'])){
+if (isset($_GET['resend_otp']) && $_GET['resend_otp'] == 'true') {
+    if (isset($_SESSION['email'])) {
         $email = $_SESSION['email'];
         $new_code = rand(999999, 111111);
-        $otp_time = time(); 
+        $otp_time = time();
         $update_code = "UPDATE users SET code = $new_code, otp_time = $otp_time WHERE email = '$email'";
         $run_query = mysqli_query($con, $update_code);
-        if($run_query){
+        if ($run_query) {
             $subject = "New OTP verification";
             $message = "Please use this new code to verify: $new_code";
             $result = sendMail($email, $subject, $message);
