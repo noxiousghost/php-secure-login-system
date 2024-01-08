@@ -1,8 +1,8 @@
 <?php require_once "controller.php"; ?>
-<?php 
+<?php
 $email = $_SESSION['email'];
-if($email == false){
-  header('Location: login.php');
+if ($email == false) {
+    header('Location: login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -26,25 +26,25 @@ if($email == false){
                 <form action="reset_password.php" method="POST" autocomplete="off" onsubmit="return submitUserForm();">
                     <h2 class="text-center">Reset Password</h2>
                     <p class="text-center">Create a new password</p>
-                    <?php 
-                    if(isset($_SESSION['info'])){
-                        ?>
-                    <!-- <div class="alert alert-dark text-success text-center">
+                    <?php
+                    if (isset($_SESSION['info'])) {
+                    ?>
+                        <!-- <div class="alert alert-dark text-success text-center">
                         <?php echo $_SESSION['info']; ?>
                     </div> -->
                     <?php
                     }
                     ?>
                     <?php
-                    if(count($errors) > 0){
-                        ?>
-                    <div class="alert alert-dark text-danger text-center">
-                        <?php
-                            foreach($errors as $showerror){
+                    if (count($errors) > 0) {
+                    ?>
+                        <div class="alert alert-dark text-danger text-center">
+                            <?php
+                            foreach ($errors as $showerror) {
                                 echo $showerror;
                             }
                             ?>
-                    </div>
+                        </div>
                     <?php
                     }
                     ?>
@@ -52,8 +52,7 @@ if($email == false){
 
                     <div class="form-group">
                         <div>
-                            <input id="password" class="form-control" type="password" name="password"
-                                placeholder="Enter your password" required>
+                            <input id="password" class="form-control" type="password" name="password" placeholder="Enter your password" required>
                             <span class="show-pass" onclick="togglePasswordVisibility('password','password-eye')">
                                 <i id="password-eye" class="far fa-eye"></i>
                             </span>
@@ -62,8 +61,7 @@ if($email == false){
                         <div id="popover-password">
                             <p><span id="result"></span></p>
                             <div class="progress">
-                                <div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                <div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                 </div>
                             </div>
                             <span class="info-icon" id="showCriteriaBtn" onclick="toggleCriteria()">
@@ -100,16 +98,14 @@ if($email == false){
 
 
                     <div class="form-group">
-                        <input id="cpassword" class="form-control" type="password" name="cpassword"
-                            placeholder="Confirm password" required>
+                        <input id="cpassword" class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
                         <span class="show-pass" onclick="togglePasswordVisibility('cpassword','cpassword-eye')">
                             <i id="cpassword-eye" class="far fa-eye"></i>
                         </span>
                     </div>
 
                     <div class="form-group">
-                        <div class="h-captcha" data-sitekey="57487d02-b4b4-4736-a154-810cd3700def" data-theme="dark"
-                            data-callback="verifyCaptcha">
+                        <div class="h-captcha" data-sitekey="Hcaptcha_Site_Key" data-theme="dark" data-callback="verifyCaptcha">
                         </div>
                         <div id="captcha-error"></div>
                     </div>

@@ -21,7 +21,7 @@ function isValidPassword($password)
 
 //Function for hcaptcha server side verification
 // if you wish you can get your own h-captcha secret key and use
-define('HCAPTCHA_SECRET_KEY', 'ES_25eb6b5bcf6b490aaa760bc8aa04a431');
+define('HCAPTCHA_SECRET_KEY', 'Your_Hcaptcha_Secret_Key');
 function validateHcaptcha($hcaptchaResponse)
 {
     $hcaptchaUrl = "https://hcaptcha.com/siteverify";

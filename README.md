@@ -1,4 +1,4 @@
-# Advanced Cybersecurity Assignment - Secure Login/Signup Prototype
+# Secure Login/Signup Prototype
 
 This web application prototype illustrates the design of security systems and the application of programming principles to cybersecurity applications. Users can create an account, log in, and explore the basic functionalities of the system.
 
@@ -10,49 +10,26 @@ This web application prototype illustrates the design of security systems and th
 - JavaScript
 - MySQL
 
-## Project File Structure
-
-Narayan_login/
-│
-├── css/
-│ ├── style.css
-│ └── home.css
-│ └── terms.css
-│
-├── js/
-│ ├── main.js
-│ ├── pw.js
-│
-│
-├── DB/
-│ └── narayan_user.sql
-│
-├── PHPMailer/src/
-│ └── ... (PHPMailer library files)
-│
-├── All other PHP files and one html file
-
 ## Instructions
 
 Follow these steps to run the project successfully on your system:
 
-1. If using XAMPP, copy the entire `Narayan_login` folder to `xampp/htdocs/`.
+1. If using XAMPP, copy the entire `php-secure-login-system` folder to `xampp/htdocs/`.
 
 2. Import the database:
 
 - Open phpMyAdmin in your web browser.
-- Import the SQL file located in the `DB` directory (`Narayan_login/DB/narayan_user.sql`). No need to create database first
+- Import the SQL file located in the `DB` directory (`php-secure-login-system/DB/users.sql`). No need to create database first
+
+3. Make Changes in Code:
+
+- Open the project in any code editor.
+- In controller.php file, in line 24 remove Your_Hcaptcha_Secret_Key and enter your own Hcaptcha secret key
+- In change_password.php file, reset_password.php and signup.php, remove Hcaptcha_Site_Key and enter your own Hcaptcha site key
+- In send_email.php, enter your own gmail and its app password (Not gmail password).
 
 3. Start your local server (XAMPP, MAMP, or any other PHP server).
-4. Open your web browser and navigate to `http://127.0.0.1/Narayan_login/` to access the application.
+4. Open your web browser and navigate to `http://127.0.0.1/php-secure-login-system/` to access the application.
 
 - Note: If localhost/ is used instead of 127.0.0.1/ then h-captcha might not work
 
-## Important Notice
-
-**Disclaimer:**
-
-- I understand that storing sensitive information in the source code is a major security vulnerability.
-- For the simplicity of the grader while grading this assignment, I have included my mail and app password as well as the h-captcha site key and secret key in the source code.
-- You are expetected to receive email from sapkota.king@gmail.com for getting OTP code while signing up and changing passwords.
-- If you wish, in send_email.php file, replace username and password with your own.

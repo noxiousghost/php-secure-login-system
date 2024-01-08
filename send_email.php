@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -6,7 +7,8 @@ require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-function sendMail($recipient, $subject, $message) {
+function sendMail($recipient, $subject, $message)
+{
     // PHPMailer object
     $mail = new PHPMailer(true);
     try {
@@ -18,10 +20,10 @@ function sendMail($recipient, $subject, $message) {
         $mail->SMTPSecure = 'tls'; // Use 'ssl' for SSL
         // SMTP username and password
         // these are my own credentials you can add your own if you like
-        $mail->Username = "sapkota.king@gmail.com";
-        $mail->Password = "dxkzwuyxdzeixzqi";
+        $mail->Username = "youremail@gmail.com";
+        $mail->Password = "your_app_password";
         // setting the 'from' address, recipient, subject, and message body
-        $mail->setFrom("sapkota.king@gmail.com", "Narayan Sapkota");
+        $mail->setFrom("youremail@gmail.com", "Yourname");
         $mail->addAddress($recipient);
         $mail->Subject = $subject;
         $mail->Body = $message;
@@ -32,4 +34,3 @@ function sendMail($recipient, $subject, $message) {
         return "Error while sending email: " . $mail->ErrorInfo;
     }
 }
-?>

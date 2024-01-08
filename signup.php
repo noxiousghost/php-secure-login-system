@@ -21,22 +21,22 @@
                     <h2 class=" text-center">Signup</h2>
                     <p class="text-center">Create a new account.</p>
                     <?php
-                    if(count($errors) == 1){
-                        ?>
+                    if (count($errors) == 1) {
+                    ?>
                     <div class="alert alert-dark text-danger text-center">
                         <?php
-                            foreach($errors as $showerror){
+                            foreach ($errors as $showerror) {
                                 echo $showerror;
                             }
                             ?>
                     </div>
                     <?php
-                    }elseif(count($errors) > 1){
-                        ?>
+                    } elseif (count($errors) > 1) {
+                    ?>
                     <div class="alert alert-dark text-danger text-center">
                         <?php
-                            foreach($errors as $showerror){
-                                ?>
+                            foreach ($errors as $showerror) {
+                            ?>
                         <li><?php echo $showerror; ?></li>
                         <?php
                             }
@@ -116,7 +116,7 @@
                                 Terms and Conditions</a></label>
                     </div>
                     <div class="form-group">
-                        <div class="h-captcha" data-sitekey="57487d02-b4b4-4736-a154-810cd3700def" data-theme="dark"
+                        <div class="h-captcha" data-sitekey="Hcaptcha_Site_Key" data-theme="dark"
                             data-callback="verifyCaptcha">
                         </div>
                         <div id="captcha-error"></div>

@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 -- Drop the database if it exists
-DROP DATABASE IF EXISTS `narayan_users`;
+DROP DATABASE IF EXISTS `login-users`;
 
 -- Create the database
 CREATE DATABASE `narayan_users`;
